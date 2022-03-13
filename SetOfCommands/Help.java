@@ -1,7 +1,7 @@
 package SetOfCommands;
-
 import java.util.Map;
-import java.util.Objects;
+
+import static SetOfCommands.CommandsPack.*;
 
 public class Help extends Command{
 
@@ -10,8 +10,8 @@ public class Help extends Command{
     }
 
     @Override
-    void go() {
-        for(Map.Entry<String, Command> set: CommandsPack.getMap().entrySet()) {
+    public void go() {
+        for(Map.Entry<String, Command> set: getMap().entrySet()) {
 
             System.out.print(set.getKey());
             if (set.getKey().equals(new Add().getName()) | set.getKey().equals(new UpdateID().getName()))

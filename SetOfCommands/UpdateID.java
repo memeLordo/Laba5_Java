@@ -1,5 +1,6 @@
 package SetOfCommands;
 
+import static Parameters.Person.*;
 import static SetOfCommands.CommandsPack.*;
 
 public class UpdateID extends Command {
@@ -8,10 +9,10 @@ public class UpdateID extends Command {
     }
 
     @Override
-    void go() {
+    public void go() {
         putPeopleDataUp(inputID);
         getPeople_data().pop();
-        getPeople_data().push(Add.PersonSet(inputID));
+        getPeople_data().push(PersonSet(inputID));
         sortPeopleData();
         System.out.println("Пользователь изменён");
     }

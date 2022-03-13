@@ -5,7 +5,7 @@ public class RemoveFirst extends Command {
         super("removefirst", "удалить первый элемент из коллекции");
     }
     @Override
-    void go() {
+    public void go() {
         getPeople_data().pop();
     }
 }

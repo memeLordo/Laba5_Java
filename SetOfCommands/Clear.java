@@ -1,14 +1,15 @@
 package SetOfCommands;
 
-public class Clear extends Command{
-    public Clear(String name, String description) {
-        super(name, description);
+public class Clear extends Command {
+    public Clear() {
+        super("clear", "очистить коллекцию");
     }
 
     @Override
-    void go() {
-        while(!CommandsPack.getPeople_data().empty())
-        CommandsPack.getPeople_data().pop();
+    public void go() {
+        while (!CommandsPack.getPeople_data().empty())
+            CommandsPack.getPeople_data().pop();
+        System.out.println("Коллекция очищена.");
     }
 
 }

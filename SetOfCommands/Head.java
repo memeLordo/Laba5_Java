@@ -2,6 +2,8 @@ package SetOfCommands;
 
 import Parameters.Person;
 
+import static SetOfCommands.CommandsPack.*;
+
 public class Head extends Command{
 
     public Head() {
@@ -9,10 +11,10 @@ public class Head extends Command{
     }
 
     @Override
-    void go() {
+    public void go() {
         Person jew = null;
-        if(CommandsPack.isPeopleDataEmpty()){
-            for (Person person:CommandsPack.getPeople_data()) jew = person;
+        if(isPeopleDataEmpty()){
+            for (Person person: getPeople_data()) jew = person;
             assert jew != null;
             Show.showPerson(jew);
         }

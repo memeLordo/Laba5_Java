@@ -6,7 +6,7 @@ public class Exit extends Command{
     }
 
     @Override
-    void go() {
+    public void go() {
         System.exit(0);
     }
 }

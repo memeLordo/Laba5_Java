@@ -2,7 +2,7 @@ package Parameters;
 public interface PersonSet {
     Integer Id();
     String Name();
-    Coordinates Coordinates() throws Exception;
+    Coordinates Coordinates();
     Long Height();
     java.time.LocalDate Birthday();
     Double Weight();

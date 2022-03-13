@@ -9,7 +9,7 @@ public class RemoveID extends Command {
     }
 
     @Override
-    void go() {
+    public void go() {
         putPeopleDataUp(inputID);
         getPeople_data().pop();
         sortPeopleData();

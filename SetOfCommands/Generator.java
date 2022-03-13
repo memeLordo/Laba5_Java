@@ -1,22 +1,24 @@
 package SetOfCommands;
 
-import Parameters.*;
+import Parameters.Color;
+import Parameters.Coordinates;
+import Parameters.Location;
+import Parameters.PersonSet;
 
 import java.time.LocalDate;
 import java.util.Random;
 
 public class Generator implements PersonSet {
-    Random random=new Random();
     private static final String[] names =
-            {"Василий", "Пётр", "Саша", "Николай","Валентин","Даниил","Иван","Евгений"};
-    private static final String[] surnames={"Иванов", "Сидоров","Никитин","Серебрянский","Петров"};
-    private static final String[] places={"Россия","Албания","США","Китай","Великобритания","Германия","Чехия"};
+            {"Василий", "Пётр", "Саша", "Николай", "Валентин", "Даниил", "Иван", "Евгений"};
+    private static final String[] surnames = {"Иванов", "Сидоров", "Никитин", "Серебрянский", "Петров"};
+    private static final String[] places = {"Россия", "Албания", "США", "Китай", "Великобритания", "Германия", "Чехия"};
+    Random random = new Random();
     private long height;
 
     @Override
     public Integer Id() {
-
-        return random.nextInt(999999998)+1;
+        return random.nextInt(999999998) + 1;
     }
 
     @Override
@@ -26,12 +28,12 @@ public class Generator implements PersonSet {
 
     @Override
     public Coordinates Coordinates() {
-        return new Coordinates(random.nextInt(180),random.nextInt(180));
+        return new Coordinates(random.nextInt(180), random.nextInt(180));
     }
 
     @Override
     public Long Height() {
-        height = random.nextLong(150L,200L);
+        height = random.nextLong(150L, 200L);
         return height;
     }
 
@@ -42,7 +44,7 @@ public class Generator implements PersonSet {
 
     @Override
     public Double Weight() {
-        return Math.pow((height*0.01d),2)* random.nextInt(18,26);
+        return Math.pow((height * 0.01d), 2) * random.nextInt(18, 26);
     }
 
     @Override
@@ -53,6 +55,6 @@ public class Generator implements PersonSet {
 
     @Override
     public Location Location() {
-        return new Location(random.nextInt(-180,180), random.nextInt(-180,181), random.nextFloat(),places[random.nextInt(places.length)]);
+        return new Location(random.nextInt(-180, 180), random.nextInt(-180, 181), random.nextFloat(), places[random.nextInt(places.length)]);
     }
 }
