@@ -3,6 +3,8 @@ package SetOfCommands;
 
 import xmlFiles.xmlWriter;
 
+import static SetOfCommands.CommandsPack.sortPeopleData;
+
 public class Save extends Command {
     public Save() {
         super("save", "сохранить коллекцию в файл");
@@ -13,6 +15,7 @@ public class Save extends Command {
     @Override
     public void go() {
         CreateFile(xmlWriter.getPath());
+        sortPeopleData();
         xmlWriter.go();
         System.out.println("Данные сохранены.");
     }

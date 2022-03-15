@@ -34,6 +34,7 @@ public class Person {
         this.weight = weight;
         this.eyeColor = eyeColor;
         this.location = location;
+
     }
 
     public Person() {

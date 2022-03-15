@@ -17,6 +17,7 @@ public class Help extends Command{
             if (set.getKey().equals(new Add().getName()) | set.getKey().equals(new UpdateID().getName()))
                 System.out.print(" <element>");
             System.out.println(" : " + set.getValue().getDescription());
+            if(set.getKey().equals("add")) System.out.println("add def : добавить новый стандартный элемент в коллекцию");
         }
     }
 }

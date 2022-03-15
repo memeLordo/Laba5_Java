@@ -1,8 +1,6 @@
 package xmlFiles;
-
 import Parameters.Person;
-import SetOfCommands.Info;
-
+import SetOfCommands.InfoData;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.Locale;
@@ -16,7 +14,7 @@ public class xmlWriter extends xmlData {
 
     public static void go() {
         DecimalFormat dF = new DecimalFormat("#.##", new DecimalFormatSymbols(Locale.US));
-        String[] type = new Info().getColumns();
+        String[] type = InfoData.getColumns();
         String input = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
         Stack<Person> s1 = getPeople_data();
         Stack<Person> s2 = new Stack<>();

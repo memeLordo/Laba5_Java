@@ -4,7 +4,7 @@ import Parameters.Color;
 import Parameters.Coordinates;
 import Parameters.Location;
 import Parameters.Person;
-import SetOfCommands.Info;
+import SetOfCommands.InfoData;
 
 import java.time.LocalDate;
 import java.util.Scanner;
@@ -19,7 +19,7 @@ public class xmlReader extends xmlData {
     public static Stack<Person> go() {
         Stack<Person> result = new Stack<>();
         Scanner sc = new Scanner(read());
-        String[] type = new Info().getColumns();
+        String[] type = InfoData.getColumns();
         String[] fill = new String[8];
         while (sc.hasNext()) {
             String input = sc.nextLine();
@@ -49,14 +49,12 @@ public class xmlReader extends xmlData {
         }
         return result.toString();
     }
-
     static Coordinates parseCoordinates(String input) {
         String[] s = input.replaceAll("°", "").split(" . ");
         return new Coordinates(parseInt(s[0]), parseInt(s[1]));
     }
 
     static LocalDate parseLDate(String input) {
-//        DateFormat df = new SimpleDateFormat("EEE MMM dd kk:mm:ss z yyyy", Locale.ENGLISH);
         return LocalDate.parse(input);
     }
 

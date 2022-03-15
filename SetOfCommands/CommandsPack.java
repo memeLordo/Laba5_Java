@@ -11,41 +11,52 @@ public class CommandsPack {
     private static final List<String> defCommandSet = new LinkedList<>();
     public static boolean isDefaultCommand = false;
     public static Integer inputID = 0;
+    public static String inputCommand;
     private static Stack<Person> people_data = xmlReader.go();
 
     public static void go() {
 
         Command help = new Help();
-        Command info = new Info();
+        Command info = new InfoData();
         Command show = new Show();
         Command add = new Add();
         Command clear = new Clear();
+        Command find = new Contains();
         Command exit = new Exit();
         Command head = new Head();
         Command save = new Save();
         Command execute = new ExecuteFile();
         Command update = new UpdateID();
-        Command remove = new RemoveID();
+        Command remove = new Remove();
+        Command removeID = new RemoveID();
         Command remove1 = new RemoveFirst();
         Command removelow = new RemoveLower();
+        Command max = new MaxElement();
 
         map.put(help.getName(), help);
         map.put(info.getName(), info);
         map.put(show.getName(), show);
         map.put(add.getName(), add);
         map.put(clear.getName(), clear);
+        map.put(find.getName(), find);
         map.put(exit.getName(), exit);
         map.put(head.getName(), head);
         map.put(save.getName(), save);
         map.put(execute.getName(), execute);
         map.put(update.getName(), update);
         map.put(remove.getName(), remove);
+        map.put(removeID.getName(), removeID);
         map.put(remove1.getName(), remove1);
         map.put(removelow.getName(), removelow);
+        map.put(max.getName(), max);
 
         defCommandSet.add(update.getName());
+        defCommandSet.add(removeID.getName());
         defCommandSet.add(remove.getName());
         defCommandSet.add(removelow.getName());
+        defCommandSet.add(find.getName());
+        defCommandSet.add(max.getName());
+
         type();
 
     }
@@ -99,6 +110,25 @@ public class CommandsPack {
 
     }
 
+//    public static String mapFind(String textLine) {
+//        String command = null;
+//        String[] setOfCommands = textLine.split(" ");
+//        for (int i = 0; i < setOfCommands.length; i++) {
+//            String check = setOfCommands[i];
+//            for (Map.Entry<String, Command> set : CommandsPack.map.entrySet()) {
+//                command = check.equals(set.getKey()) ? check : command;
+//                isDefaultCommand = check.equals("def") || isDefaultCommand;
+//            }
+//            try {
+//
+//                inputID = Integer.parseInt(setOfCommands[i + 1]);
+//                inputCommand = setOfCommands[i + 1];
+//            } catch (ArrayIndexOutOfBoundsException ignored) {
+//                return command;
+//            }
+//        }
+//        return command;
+//    }
     public static String mapFind(String textLine) {
         String command = null;
         String[] setOfCommands = textLine.split(" ");
@@ -108,15 +138,18 @@ public class CommandsPack {
                 command = check.equals(set.getKey()) ? check : command;
                 isDefaultCommand = check.equals("def") || isDefaultCommand;
             }
-
-
             if (flag){
                 try {
                     inputID = Integer.parseInt(check);
-
                 } catch (NumberFormatException e) {
-                    System.err.println("Неверный ID.");
+                    try{
+                        inputCommand = check;
+                    }catch (NullPointerException e1){
+                        return command;
+                    }
+
                 }
+
             }
             for (String s : defCommandSet) flag = Objects.equals(command, s) || flag;
 //            command = Objects.equals(set.getKey(), textLine) ? textLine : command;

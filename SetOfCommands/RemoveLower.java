@@ -13,9 +13,12 @@ public class RemoveLower extends Command {
 
     @Override
     public void go() {
-        System.out.println(inputID);
-        sortPeopleData(inputID);
-        System.out.println("done");
+
+        if(Contains.findIn(inputID)){
+            System.out.println(inputID);
+            sortPeopleData(inputID);
+            System.out.println("done");
+        }
     }
 
     void sortPeopleData(int id) {
