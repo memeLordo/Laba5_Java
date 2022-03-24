@@ -5,7 +5,7 @@ import static SetOfCommands.CommandsPack.*;
 
 public class UpdateID extends Command {
     public UpdateID() {
-        super("update", "description");
+        super("update", "description",true);
     }
 
     @Override

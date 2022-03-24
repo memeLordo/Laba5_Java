@@ -7,7 +7,7 @@ import static SetOfCommands.CommandsPack.*;
 public class Head extends Command{
 
     public Head() {
-        super("head", "вывести первый элемент коллекции");
+        super("head", "вывести первый элемент коллекции",false);
     }
 
     @Override

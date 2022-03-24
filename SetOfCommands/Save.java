@@ -7,7 +7,7 @@ import static SetOfCommands.CommandsPack.sortPeopleData;
 
 public class Save extends Command {
     public Save() {
-        super("save", "сохранить коллекцию в файл");
+        super("save", "сохранить коллекцию в файл",true);
     }
 
 

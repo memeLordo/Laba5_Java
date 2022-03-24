@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class ExecuteFile extends Command{
     public ExecuteFile() {
-        super("execute", "description");
+        super("execute", "description", false);
     }
 
     @Override

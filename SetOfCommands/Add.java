@@ -9,16 +9,15 @@ public class Add extends Command {
 
 
     public Add() {
-        super("add", "добавить новый элемент в коллекцию");
+        super("add", "добавить новый элемент в коллекцию", true);
     }
 
     @Override
     public void go() {
-        if (isDefaultCommand){
+        if (inputCommand.equals("def")){
             Person bebra = new Person();
             getPeople_data().push(bebra);
             sortPeopleData();
-            isDefaultCommand = false;
             System.out.println("Добавлен новый стандартный пользователь");
         } else {
             Person bebraPerson = PersonSet();

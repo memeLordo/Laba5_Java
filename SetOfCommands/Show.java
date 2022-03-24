@@ -7,7 +7,7 @@ import java.text.SimpleDateFormat;
 
 public class Show extends Command {
     public Show() {
-        super("show", "вывести в стандартный поток вывода все элементы коллекции в строковом представлении");
+        super("show", "вывести в стандартный поток вывода все элементы коллекции в строковом представлении",false);
     }
 
     public static void showPerson(Person person) {
